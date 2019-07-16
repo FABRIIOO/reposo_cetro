@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Blank App</title>
+        <style>
+            body {
+                margin:0;
+                padding:0;
+                background-color: #68ac4f;
+                border-top: 10px solid #492464;
+                /* border-bottom: 10px solid #492464; */
+            }
+
+       
+
+            .button_scanqr {
+                width: 150px;
+                height: 90px;
+                background-color: #492464;
+                border: 2px solid #492464;
+                border-radius: 4px;
+                font-size: 20px;
+                color: white;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+                display: block;
+
+            }
+        
+            .titulo {
+                color: #492464;
+                text-align: center;
+            }
+            .icon_qrcode {
+                width: 200px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            .conteudo {
+                background-color: white;
+                width: 90%;
+                height: 90vh;
+                border-radius: 9px;
+                margin-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.43);
+                -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.43);
+                box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.43);
+            }
+
+            .quadrado {
+                height: 200px;
+                width: 200px;
+                border: 5px solid #492464;
+                border-radius: 5px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+   
+        <div class="conteudo">
+            <img src="icon/logo.png" class="icon_qrcode"> 
+            <h1 class="titulo"> Leitor de QRCode </h1>
+            <div class="quadrado">
+
+            </div>
+            <button type="button" class="button_scanqr" onclick="scan()">Escanear QRcode</button>
+        </div>
+        <script>
+          function scan()
+            {
+                cordova.plugins.barcodeScanner.scan(
+                    function (result) {
+                    	alert(result.text);
+                    }
+               );
+            }
+</script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>
